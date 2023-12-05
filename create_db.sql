@@ -1,8 +1,8 @@
 # Create database script for Discuss Hub
 
 # Create the database
-CREATE DATABASE discussHub
-USE discussHub
+CREATE DATABASE discussHub;
+USE discussHub;
 
 # Create the Users table
 CREATE TABLE Users (
