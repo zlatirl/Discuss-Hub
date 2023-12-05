@@ -1,0 +1,60 @@
+/* Header - Div containing the title and subtitle */
+
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+}
+
+.main-title, .sub-title {
+    display: inline-block;
+}
+
+.main-title, .sub-title {
+    margin-right: 10px;
+}
+
+/* h1 - main-title */
+
+.main-title a, .sub-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.main-title a:visited, .sub-title a:visited {
+    color: inherit;
+}
+
+.main-title {
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: red;
+}
+
+/* Darken link on hover */
+.main-title a:hover {
+    color: darkred;
+}
+
+/* h1 - sub-title */
+
+.sub-title {
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: coral;
+}
+
+/* Darken link on hover */
+.sub-title a:hover {
+    color: darkred;
+}
+
+body {
+    background-color: #f0f0f0;
+}
