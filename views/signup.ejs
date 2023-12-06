@@ -4,21 +4,22 @@
         <title>Sign Up - <%=forumName%></title>
         <link rel="stylesheet" type="text/css" href="/main.css" />
     </head>
-    <body>
+    <body class="login-body">
         <div class="header-container">
             <h1 class="main-title"><a href="/"><%=forumName%></a></h1>
             <h1 class="sub-title"><a href="/about">About</a></h1>
-            <h1 class="sub-title"><a href="/signup">Signup</a></h1>
             <h1 class="sub-title"><a href="/login">Login</a></h1>
             <h1 class="sub-title"><a href="/search">Search</a></h1>
         </div>
 
-        <h1>Register for <%=forumName%></h1>
-        <form method="POST" action="/registered">
-            <p>Username: <input id="username" type="text" name="username" placeholder="Choose a username" /></p>
-            <p>Email: <input id="email" type="email" name="email" placeholder="Enter your email" /></p>
-            <p>Password: <input id="password" type="password" name="password" placeholder="Enter your password"/></p>
-            <input type="Submit" value="Register" />
-        </form>
+        <div class="login-container">    
+            <h1 class="login-title">Register for <%=forumName%></h1>
+            <form class="login-form" method="POST" action="/registered">
+                <p>Username: <input id="username" type="text" name="username" placeholder="Choose a username" /></p>
+                <p>Email: <input id="email" type="email" name="email" placeholder="Enter your email" /></p>
+                <p>Password: <input id="password" type="password" name="password" placeholder="Enter your password"/></p>
+                <input type="Submit" value="Register" />
+            </form>
+        </div>
     </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Welcome to <%=forumName%></title>
+        <link rel="stylesheet" type="text/css" href="/main.css" />
+    </head>
+    <body class="login-body">
+        <div class="header-container">
+            <h1 class="main-title"><a href="/"><%=forumName%></a></h1>
+            <h1 class="sub-title"><a href="/about">About</a></h1>
+            <h1 class="sub-title"><a href="/login">Login</a></h1>
+            <h1 class="sub-title"><a href="/search">Search</a></h1>
+        </div>
+
+        <div class="login-container">  
+            <h1 class="login-title">Login</h1>
+            <form class="login-form" method="POST" action="/login">
+                <p>Username: <input id="username" type="text" name="username" placeholder="Username" /></p>
+                <p>Password: <input id="password" type="password" name="password" placeholder="Password"/></p>
+                <input type="Submit" value="Login" />
+            </form>
+            <p>Don't have an account? <a href="/signup">Sign up here</a></p>
+        </div>
+    </body>
+</html>

@@ -17,6 +17,11 @@ module.exports = function (app, forumData) {
         res.render('search.ejs', forumData);
     });
 
+    // Login Page
+    app.get('/login', function (req, res) {
+        res.render('login.ejs', forumData);
+    });
+
     // Signup Page
     app.get('/signup', function (req, res) {
         res.render('signup.ejs', forumData);
