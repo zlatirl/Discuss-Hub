@@ -62,7 +62,7 @@ module.exports = function (app, forumData) {
             }
 
             // Send the list of usernames to the users view
-            res.render('users.ejs', { users: result });
+            res.render('users.ejs', {users: result, forumName: forumData.forumName});
         });
     });
     
