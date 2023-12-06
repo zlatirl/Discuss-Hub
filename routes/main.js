@@ -49,4 +49,30 @@ module.exports = function (app, forumData) {
             res.send('Registration successful. Welcome, ' + username + '!');
         });
     });
+
+    app.post('login', function (req, res) {
+        // Retrieve form data
+        const username = req.body.username;
+        const password = req.body.password;
+
+        // Check if username and password are correct
+        const selectUserQuery = "SELECT * FROM users WHERE username = ? AND password = ?";
+        const userData = [username, password];
+
+        db.query(selectUserQuery, userData, (err, result) => {
+            if (err) {
+                // Handle error
+                console.log(err.message);
+                return res.send('Login failed. Please try again.');
+            }
+
+            if (result.length === 0) {
+                // No user found
+                return res.send('No user found.');
+            }
+
+            // Login successful
+            res.send('Login successful. Welcome, ' + username + '!');
+        });
+    });
 }
