@@ -50,7 +50,7 @@ module.exports = function (app, forumData) {
         });
     });
 
-    app.post('login', function (req, res) {
+    app.post('/login-process', function (req, res) {
         // Retrieve form data
         const username = req.body.username;
         const password = req.body.password;
@@ -68,11 +68,16 @@ module.exports = function (app, forumData) {
 
             if (result.length === 0) {
                 // No user found
-                return res.send('No user found.');
+                return res.send('User not registered. Please Sign up.');
             }
 
-            // Login successful
-            res.send('Login successful. Welcome, ' + username + '!');
+            // Check if the password is incorrect
+            const user = result[0];
+            if (user.password === password) {
+                res.send('Login successful. Welcome, ' + username + '!');
+            } else {
+                res.send('Incorrect password. Please try again.');
+            }
         });
     });
 }
