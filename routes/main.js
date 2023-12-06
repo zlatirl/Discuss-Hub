@@ -50,6 +50,23 @@ module.exports = function (app, forumData) {
         });
     });
 
+    // Users Page
+    app.get('/users', function (req, res) {
+        const selectUsersQuery = "SELECT * FROM users";
+
+        db.query(selectUsersQuery, (err, result) => {
+            if (err) {
+                // Handle error
+                console.log(err.message);
+                return res.send('Failed to fetch users, please try again.');
+            }
+
+            // Send the list of usernames to the users view
+            res.render('users.ejs', { users: result });
+        });
+    });
+    
+    // Login Process Page
     app.post('/login-process', function (req, res) {
         // Retrieve form data
         const username = req.body.username;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>About - <%=forumName%></title>
+        <title>Sign Up - <%=forumName%></title>
         <link rel="stylesheet" type="text/css" href="/main.css" />
     </head>
     <body>
@@ -11,6 +11,15 @@
             <h1 class="sub-title"><a href="/login">Login</a></h1>
             <h1 class="sub-title"><a href="/users">Login</a></h1>
             <h1 class="sub-title"><a href="/search">Search</a></h1>
+        </div>
+
+        <div class="login-container">    
+            <h1 class="login-title">Users</h1>
+            <ul>
+                <% for(var i=0; i<users.length; i++) {%>
+                    <li><%= users[i].username %></li>
+                <% } %>
+            </ul>
         </div>
     </body>
 </html>
