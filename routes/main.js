@@ -20,24 +20,24 @@ module.exports = function (app, forumData) {
                     return res.send('Error fetching topics.');
                 }
 
-                res.render('index.ejs', { ...forumData, posts, topics });
+                res.render('index.ejs', { ...forumData, posts, topics, user: req.session.user });
             });
         });
     });
 
     // About Page
     app.get('/about', function (req, res) {
-        res.render('about.ejs', forumData);
+        res.render('about.ejs', { ...forumData, user: req.session.user });
     });
 
     // Search Page
     app.get('/search', function (req, res) {
-        res.render('search.ejs', forumData);
+        res.render('search.ejs', { ...forumData, user: req.session.user });
     });
 
     // Login Page
     app.get('/login', function (req, res) {
-        res.render('login.ejs', forumData);
+        res.render('login.ejs', { ...forumData, user: req.session.user});
     });
 
     // Signup Page
@@ -80,7 +80,7 @@ module.exports = function (app, forumData) {
             }
 
             // Send the list of usernames to the users view
-            res.render('users.ejs', {users: result, forumName: forumData.forumName});
+            res.render('users.ejs', {users: result, forumName: forumData.forumName, user: req.session.user});
         });
     });
 
@@ -94,7 +94,7 @@ module.exports = function (app, forumData) {
                 return res.send('Error fetching topics.');
             }
 
-            res.render('addpost.ejs', { ...forumData, topics });
+            res.render('addpost.ejs', { ...forumData, topics, user: req.session.user });
         });
     });
 
@@ -134,7 +134,7 @@ module.exports = function (app, forumData) {
             if (user.password === password) {
                 // Set session variable
                 req.session.user = user;
-                res.send('Login successful. Welcome, ' + username + '!');
+                res.redirect('/');
             } else {
                 res.send('Incorrect password. Please try again.');
             }

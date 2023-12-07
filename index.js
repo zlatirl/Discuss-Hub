@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // Define the database connection
 const db = mysql.createConnection ({
     host: 'localhost',
-    user: 'your_username',
-    password: 'your_password',
+    user: 'root',
+    password: 'root',
     database: 'discussHub'
 });
 

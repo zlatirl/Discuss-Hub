@@ -8,7 +8,11 @@
         <div class="header-container">
             <h1 class="main-title"><a href="/"><%=forumName%></a></h1>
             <h1 class="sub-title"><a href="/about">About</a></h1>
-            <h1 class="sub-title"><a href="/login">Login</a></h1>
+            <% if (user) { %>
+                <h1 class="sub-title"><a href="/logout">Logout</a></h1>
+            <% } else { %>
+                <h1 class="sub-title"><a href="/login">Login</a></h1>
+            <% } %>
             <h1 class="sub-title"><a href="/users">Users</a></h1>
             <h1 class="sub-title"><a href="/search">Search</a></h1>
             <h1 class="sub-title"><a href="/addpost">Add Post</a></h1>
