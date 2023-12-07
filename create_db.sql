@@ -18,8 +18,11 @@ CREATE TABLE Topics (
     topic_name VARCHAR(255) UNIQUE NOT NULL
 );
 
-ALTER TABLE Posts
-ADD COLUMN user_id INT,
-ADD COLUMN topic_id INT,
-ADD FOREIGN KEY (user_id) REFERENCES Users(user_id),
-ADD FOREIGN KEY (topic_id) REFERENCES Topics(topic_id);
+# Create the Posts table
+CREATE TABLE Posts (
+    post_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    topic_id INT,
+    ADD FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    ADD FOREIGN KEY (topic_id) REFERENCES Topics(topic_id);
+);
