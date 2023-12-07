@@ -16,18 +16,18 @@ CREATE TABLE Users (
 CREATE TABLE Topics (
     topic_id INT AUTO_INCREMENT PRIMARY KEY,
     topic_name VARCHAR(255) UNIQUE NOT NULL
-
-    -- Inserting topics into topics table
-    INSERT INTO Topics (topic_name) VALUES ('General');
-    INSERT INTO Topics (topic_name) VALUES ('Technology');
-    INSERT INTO Topics (topic_name) VALUES ('Science');
-    INSERT INTO Topics (topic_name) VALUES ('Movies');
-    INSERT INTO Topics (topic_name) VALUES ('Books');
-    INSERT INTO Topics (topic_name) VALUES ('Travel');
-    INSERT INTO Topics (topic_name) VALUES ('Fitness');
-    INSERT INTO Topics (topic_name) VALUES ('Cooking');
-    INSERT INTO Topics (topic_name) VALUES ('Gaming');
 );
+
+-- Inserting topics into topics table
+INSERT INTO Topics (topic_name) VALUES ('General');
+INSERT INTO Topics (topic_name) VALUES ('Technology');
+INSERT INTO Topics (topic_name) VALUES ('Science');
+INSERT INTO Topics (topic_name) VALUES ('Movies');
+INSERT INTO Topics (topic_name) VALUES ('Books');
+INSERT INTO Topics (topic_name) VALUES ('Travel');
+INSERT INTO Topics (topic_name) VALUES ('Fitness');
+INSERT INTO Topics (topic_name) VALUES ('Cooking');
+INSERT INTO Topics (topic_name) VALUES ('Gaming');
 
 # Create the Posts table
 CREATE TABLE Posts (
