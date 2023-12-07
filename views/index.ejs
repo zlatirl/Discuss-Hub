@@ -32,17 +32,5 @@
             <% } %>
             </ul>
         </div>
-
-        <!-- Display Topics on Home Page -->
-        <div class="topics-container">
-            <h1 class="sub-title">Topics:</h1>
-            <ul>
-                <% for (let topic of topics) { %>
-                <li>
-                    <a href="/topics/<%= topic.id %>"><%= topic.name %></a>
-                </li>
-            <% } %>
-            </ul>
-        </div>
     </body>
 </html>
