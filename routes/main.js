@@ -86,6 +86,12 @@ module.exports = function (app, forumData) {
 
     // Add New Post Page
     app.get('/addpost', function (req, res) {
+        // Check if user is logged in
+        if (!req.session.user) {
+            // User is not logged in
+            return res.redirect('/login');
+        }
+
         // Fetch available topics
         const getTopicsQuery = "SELECT * FROM Topics";
         db.query(getTopicsQuery, (err, topics) => {
@@ -103,8 +109,23 @@ module.exports = function (app, forumData) {
         // Log form data
         console.log(req.body);
 
-        // Redirect or render a response as needed
-        res.redirect('/'); // Redirect to home page
+        // Retrieve form data
+        const topic = req.body.topic;
+        const content = req.body.content;
+
+        // Insert new post into Posts table
+        const insertPostQuery = "INSERT INTO Posts (user_id, topic_id, content) VALUES (?, ?, ?)";
+        const postData = [req.session.user.user_id, topic, content];
+
+        db.query(insertPostQuery, postData, (err, result) => {
+            if (err) {
+                console.log(err.message);
+                return res.send('Error adding post.');
+            }
+
+            // Redirect a response as needed
+            res.redirect('/'); // Redirect to home page
+        });
     });
     
     // Login Process Page
@@ -149,6 +170,23 @@ module.exports = function (app, forumData) {
             } else {
                 res.redirect('/');
             }
+        });
+    });
+
+    // Topics Page
+    app.get('/topics', function (req, res) {
+        // Fetch available topics
+        const getTopicsQuery = "SELECT * FROM Topics";
+
+        db.query(getTopicsQuery, (err, topics) => {
+            if (err) {
+                // Handle error
+                console.log(err.message);
+                return res.send('Error fetching topics.');
+            }
+
+            // Send the list of topics to the topics view
+            res.render('topics.ejs', {...forumData, topics, user: req.session.user});
         });
     });
 }

@@ -30,7 +30,7 @@ global.db = db;
 
 // Set up sessions
 app.use(session({
-    secret: '39hf93hf93hfi39fj39fj39fj3f',
+    secret: 'add_key_here',
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }

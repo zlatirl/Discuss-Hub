@@ -20,17 +20,26 @@ To run this application, follow these steps:
 
 4. Setup the MySQL database:
 
-- Create a new database named `discussHub`
-- In Index.js, replace `your_username` and `your_password` with your sql username and password
 - Run the provided SQL script to create the necessary tables:
 `mysql -u your_username -p discussHub < create_db.sql`
 (Replace `your_username` with your MySQL username)
 
-5. Start the application:
+- Alternatively, you can do this:
+
+`cd C:\Program Files\MySQL\MySQL Server 8.2\bin` - or wherever you have your MySQL directory installed.
+`mysql -u your_username -p` and enter your password (if you have any).
+`source path\to\create_db.sql`
+
+5. Make adjustments to `index.js`
+
+- Replace `your_username` and `your_password` with your sql username and password.
+- Replace `add_key_here` on `secret:` with a strong and unique key of random numbers and letters.
+
+6. Start the application:
 
 `node index.js`
 
-6. Open your web browser and go to http://localhost:8000 to access Discuss Hub.
+7. Open your web browser and go to http://localhost:8000 to access Discuss Hub.
 
 ## Dependencies
 
@@ -38,12 +47,4 @@ To run this application, follow these steps:
 - EJS
 - MySQL
 - Body-parser
-
-## Contributing
-
-If you'd like to contribute to Discuss Hub, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes and push them to your fork.
-4. Submit a pull request.
+- Express-session
