@@ -35,5 +35,5 @@ CREATE TABLE Posts (
     user_id INT,
     topic_id INT,
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    FOREIGN KEY (topic_id) REFERENCES Topics(topic_id);
+    FOREIGN KEY (topic_id) REFERENCES Topics(topic_id)
 );
