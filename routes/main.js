@@ -132,9 +132,22 @@ module.exports = function (app, forumData) {
             // Check if the password is incorrect
             const user = result[0];
             if (user.password === password) {
+                // Set session variable
+                req.session.user = user;
                 res.send('Login successful. Welcome, ' + username + '!');
             } else {
                 res.send('Incorrect password. Please try again.');
+            }
+        });
+    });
+
+    // Logout Route
+    app.get('/logout', function (req, res) {
+        req.session.destroy(function(err) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/');
             }
         });
     });
