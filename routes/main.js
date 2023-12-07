@@ -97,6 +97,15 @@ module.exports = function (app, forumData) {
             res.render('addpost.ejs', { ...forumData, topics });
         });
     });
+
+    // Add New Post Process Page
+    app.post('/addpost-process', function (req, res) {
+        // Log form data
+        console.log(req.body);
+
+        // Redirect or render a response as needed
+        res.redirect('/'); // Redirect to home page
+    });
     
     // Login Process Page
     app.post('/login-process', function (req, res) {
