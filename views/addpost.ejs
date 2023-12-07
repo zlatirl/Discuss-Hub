@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Post - <%=forumName%></title>
+        <link rel="stylesheet" type="text/css" href="/main.css" />
+    </head>
+    <body>
+        <div class="header-container">
+            <h1 class="main-title"><a href="/"><%=forumName%></a></h1>
+            <h1 class="sub-title"><a href="/about">About</a></h1>
+            <h1 class="sub-title"><a href="/login">Login</a></h1>
+            <h1 class="sub-title"><a href="/users">Users</a></h1>
+            <h1 class="sub-title"><a href="/search">Search</a></h1>
+            <h1 class="sub-title"><a href="/addpost">Add Post</a></h1>
+        </div>
+
+        <div class="addpost-container">
+            <h1 class="sub-title">Add New Post</h1>
+            <form method="POST" action="/addpost">
+                <label for="topic">Select Topic:</label>
+                <select id="topic" name="topic">
+                    <% for (let topic of topics) { %>
+                        <option value="<%= topic.topic_id %>"><%= topic.topic_name %></option>
+                    <% } %>
+                </select>
+                <br>
+                <label for="content">Post Content:</label>
+                <textarea id="content" name="content" rows="4" cols="50" required></textarea>
+                <br>
+                <input type="submit" value="Submit Post" />
+            </form>
+        </div>
+    </body>
+</html>

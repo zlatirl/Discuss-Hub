@@ -11,3 +11,15 @@ CREATE TABLE Users (
     password VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL
 );
+
+# Create the Topics table
+CREATE TABLE Topics (
+    topic_id INT AUTO_INCREMENT PRIMARY KEY,
+    topic_name VARCHAR(255) UNIQUE NOT NULL
+);
+
+ALTER TABLE Posts
+ADD COLUMN user_id INT,
+ADD COLUMN topic_id INT,
+ADD FOREIGN KEY (user_id) REFERENCES Users(user_id),
+ADD FOREIGN KEY (topic_id) REFERENCES Topics(topic_id);

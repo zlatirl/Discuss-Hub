@@ -11,6 +11,33 @@
             <h1 class="sub-title"><a href="/login">Login</a></h1>
             <h1 class="sub-title"><a href="/users">Users</a></h1>
             <h1 class="sub-title"><a href="/search">Search</a></h1>
+            <h1 class="sub-title"><a href="/addpost">Add Post</a></h1>
+        </div>
+
+        <!-- Display Posts on Home Page -->
+        <div class="posts-container">
+            <h1 class="sub-title">Recent Posts:</h1>
+            <ul>
+                <% for (let post of posts) { %>
+                <li>
+                    <strong><%= post.username %></strong> in
+                    <a href="/topics/<%= post.topic_id %>"><%= post.topic_name %></a>:
+                    <%= post.content %>
+                </li>
+            <% } %>
+            </ul>
+        </div>
+
+        <!-- Display Topics on Home Page -->
+        <div class="topics-container">
+            <h1 class="sub-title">Topics:</h1>
+            <ul>
+                <% for (let topic of topics) { %>
+                <li>
+                    <a href="/topics/<%= topic.topic.id %>"><%= topic.topic.name %></a>
+                </li>
+            <% } %>
+            </ul>
         </div>
     </body>
 </html>

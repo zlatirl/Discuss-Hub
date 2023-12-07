@@ -4,7 +4,25 @@ module.exports = function (app, forumData) {
 
     // Home Page
     app.get('/', function (req, res) {
-        res.render('index.ejs', forumData);
+        // Fetch recent posts and available topics from the database
+        const getRecentPostsQuery = "SELECT * FROM Posts JOIN Users ON Posts.user_id = Users.user_id JOIN Topics ON Posts.topic_id = Topics.topic_id ORDER BY post_id DESC LIMIT 5";
+        const getTopicsQuery = "SELECT * FROM Topics";
+
+        db.query(getRecentPostsQuery, (err, posts) => {
+            if (err) {
+                console.log(err.message);
+                return res.send('Error fetching posts.');
+            }
+
+            db.query(getTopicsQuery, (err, topics) => {
+                if (err) {
+                    console.log(err.message);
+                    return res.send('Error fetching topics.');
+                }
+
+                res.render('index.ejs', { ...forumData, posts, topics });
+            });
+        });
     });
 
     // About Page
@@ -63,6 +81,20 @@ module.exports = function (app, forumData) {
 
             // Send the list of usernames to the users view
             res.render('users.ejs', {users: result, forumName: forumData.forumName});
+        });
+    });
+
+    // Add New Post Page
+    app.get('/addpost', function (req, res) {
+        // Fetch available topics
+        const getTopicsQuery = "SELECT * FROM Topics";
+        db.query(getTopicsQuery, (err, topics) => {
+            if (err) {
+                console.log(err.message);
+                return res.send('Error fetching topics.');
+            }
+
+            res.render('addpost.ejs', { ...forumData, topics });
         });
     });
     
