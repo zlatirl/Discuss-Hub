@@ -20,13 +20,13 @@
         </div>
 
         <!-- Show Existing Posts -->
-        <div class="posts-container">
+        <div class="login-container">
             <h1 class="sub-title">Existing Posts:</h1>
             <ul>
                 <% for (let post of posts) { %>
                     <li>
                         <strong><%= post.username %></strong> in 
-                        <a href="/topics/<%= post.topic_id %>"><%= post.topic_name %></a>:
+                        <%= post.topic_name %></a>:
                         <%= post.content %>
                     </li>
                 <% } %>

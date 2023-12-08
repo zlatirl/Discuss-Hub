@@ -26,7 +26,7 @@
                 <% for (let post of posts) { %>
                 <li>
                     <strong><%= post.username %></strong> in
-                    <a href="/topics/<%= post.topic_id %>"><%= post.topic_name %></a>:
+                    <%= post.topic_name %></a>:
                     <%= post.content %>
                 </li>
             <% } %>
