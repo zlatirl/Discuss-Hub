@@ -20,11 +20,11 @@
         </div>
 
         <!-- Display Posts on Home Page -->
-        <div class="posts-container">
+        <div class="login-container">
             <h1 class="sub-title">Recent Posts:</h1>
             <ul>
                 <% for (let post of posts) { %>
-                <li>
+                <li class="posts">
                     <strong><%= post.username %></strong> in
                     <%= post.topic_name %></a>:
                     <%= post.content %>
