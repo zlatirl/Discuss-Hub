@@ -19,5 +19,12 @@
             <h1 class="sub-title"><a href="/topics">Topics</a></h1>
             <h1 class="sub-title"><a href="/posts">Posts</a></h1>
         </div>
+
+        <% posts.forEach(function(post) { %>
+            <div class="posts">
+                <h1 class="sub-title"><%= post.post_title %></h1>
+                <h1 class="sub-title"><%= post.post_body %></h1>
+            </div>
+        <% }); %>
     </body>
 </html>

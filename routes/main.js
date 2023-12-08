@@ -189,4 +189,21 @@ module.exports = function (app, forumData) {
             res.render('topics.ejs', {...forumData, topics, user: req.session.user});
         });
     });
+
+    // Posts Page
+    app.get('/posts', function (req, res) {
+        //fetch existing posts
+        const getPostsQuery = "SELECT * FROM Posts JOIN Users ON Posts.user_id = Users.user_id JOIN Topics ON Posts.topic_id = Topics.topic_id ORDER BY post_id DESC";
+
+        db.query(getPostsQuery, (err, posts) => {
+            if (err) {
+                // Handle error
+                console.log(err.message);
+                return res.send('Error fetching posts.');
+            }
+
+            // Send the list of posts to the posts view
+            res.render('existing-posts.ejs', {...forumData, posts, user: req.session.user});
+        });
+    });
 }
