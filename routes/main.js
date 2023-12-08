@@ -30,11 +30,6 @@ module.exports = function (app, forumData) {
         res.render('about.ejs', { ...forumData, user: req.session.user });
     });
 
-    // Search Page
-    app.get('/search', function (req, res) {
-        res.render('search.ejs', { ...forumData, user: req.session.user });
-    });
-
     // Login Page
     app.get('/login', function (req, res) {
         res.render('login.ejs', { ...forumData, user: req.session.user});
@@ -128,7 +123,7 @@ module.exports = function (app, forumData) {
         });
     });
     
-    // Login Process Page
+    // Login Process
     app.post('/login-process', function (req, res) {
         // Retrieve form data
         const username = req.body.username;
@@ -203,7 +198,7 @@ module.exports = function (app, forumData) {
             }
 
             // Send the list of posts to the posts view
-            res.render('existing-posts.ejs', {...forumData, posts, user: req.session.user});
+            res.render('posts.ejs', {...forumData, posts, user: req.session.user});
         });
     });
 }
